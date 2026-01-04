@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Study_Buddy.TasksPage"
+             Title="TasksPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Background>
+        <RadialGradientBrush Center="0.5,0.5" Radius="0.8">
+            <GradientStop Color="#fffefd" Offset="0.0" />
+            <GradientStop Color="#DFB386" Offset="1.0" />
+        </RadialGradientBrush>
+    </ContentPage.Background>
+
+    <StackLayout Margin="20" Spacing="20" VerticalOptions="FillAndExpand">
+        <ScrollView VerticalOptions="FillAndExpand">
+            <StackLayout Spacing="20" >
+                <Frame Padding="0" CornerRadius="20" HasShadow="True">
+                    <StackLayout Margin="10" Orientation="Horizontal">
+                        <CheckBox Color="#CD9A68" HorizontalOptions="Start"/>
+                        <StackLayout Margin="5">
+                            <Label Text="Task 1" FontSize="20" FontAttributes="Bold" TextColor="#373737"/>
+                            <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
+                            <Button BackgroundColor="#AA1C1E" Text="Delete"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame Padding="0" CornerRadius="20" HasShadow="True">
+                    <StackLayout Margin="10" Orientation="Horizontal">
+                        <CheckBox Color="#CD9A68" HorizontalOptions="Start"/>
+                        <StackLayout Margin="5">
+                            <Label Text="Task 2" FontSize="20" FontAttributes="Bold" TextColor="#373737"/>
+                            <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
+                            <Button BackgroundColor="#AA1C1E" Text="Delete"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame Padding="0" CornerRadius="20" HasShadow="True">
+                    <StackLayout Margin="10" Orientation="Horizontal">
+                        <CheckBox Color="#CD9A68" HorizontalOptions="Start"/>
+                        <StackLayout Margin="5">
+                            <Label Text="Task 3" FontSize="20" FontAttributes="Bold" TextColor="#373737"/>
+                            <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
+                            <Button BackgroundColor="#AA1C1E" Text="Delete"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame Padding="0" CornerRadius="20" HasShadow="True">
+                    <StackLayout Margin="10" Orientation="Horizontal">
+                        <CheckBox Color="#CD9A68" HorizontalOptions="Start"/>
+                        <StackLayout Margin="5">
+                            <Label Text="Task 4" FontSize="20" FontAttributes="Bold" TextColor="#373737"/>
+                            <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
+                            <Button BackgroundColor="#AA1C1E" Text="Delete"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame Padding="0" CornerRadius="20" HasShadow="True">
+                    <StackLayout Margin="10" Orientation="Horizontal">
+                        <CheckBox Color="#CD9A68" HorizontalOptions="Start"/>
+                        <StackLayout Margin="5">
+                            <Label Text="Task 5" FontSize="20" FontAttributes="Bold" TextColor="#373737"/>
+                            <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
+                            <Button BackgroundColor="#AA1C1E" Text="Delete"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame Padding="0" CornerRadius="20" HasShadow="True">
+                    <StackLayout Margin="10" Orientation="Horizontal">
+                        <CheckBox Color="#CD9A68" HorizontalOptions="Start"/>
+                        <StackLayout Margin="5">
+                            <Label Text="Task 6" FontSize="20" FontAttributes="Bold" TextColor="#373737"/>
+                            <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
+                            <Button BackgroundColor="#AA1C1E" Text="Delete"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame Padding="0" CornerRadius="20" HasShadow="True">
+                    <StackLayout Margin="10" Orientation="Horizontal">
+                        <CheckBox Color="#CD9A68" HorizontalOptions="Start"/>
+                        <StackLayout Margin="5">
+                            <Label Text="Task 7" FontSize="20" FontAttributes="Bold" TextColor="#373737"/>
+                            <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
+                            <Button BackgroundColor="#AA1C1E" Text="Delete"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                
+            </StackLayout>
+        </ScrollView>
+        <Button Clicked="AddTask_Clicked" Text="Add Task" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="#CD9A68"
+                VerticalOptions="End">
+            <Button.Shadow>
+                <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
+            </Button.Shadow>
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#DFB386" Offset="0" />
+                    <GradientStop Color="#CD9A68" Offset="2" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+    </StackLayout>
+
+</ContentPage>

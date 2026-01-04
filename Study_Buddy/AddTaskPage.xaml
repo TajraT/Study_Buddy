@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Study_Buddy.AddTaskPage"
+             Title="AddTaskPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Background>
+        <RadialGradientBrush Center="0.5,0.5" Radius="0.8">
+            <GradientStop Color="#fffefd" Offset="0.0" />
+            <GradientStop Color="#DFB386" Offset="1.0" />
+        </RadialGradientBrush>
+    </ContentPage.Background>
+    <StackLayout Margin="20" Spacing="40">
+        <Image Source="study.png" HeightRequest="100" Margin="0,20,0,0"/>
+        <StackLayout Margin="0,20" Spacing="40">
+            <Border Stroke="#DFB386" StrokeThickness="2" Padding="10" StrokeShape="RoundRectangle 20">
+                <Border.Shadow>
+                    <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
+                </Border.Shadow>
+                <Entry Placeholder="Title" PlaceholderColor="#373737" FontSize="18" FontAttributes="Italic"></Entry>
+            </Border>
+            <Border Stroke="#DFB386" StrokeThickness="2" Padding="10" StrokeShape="RoundRectangle 20">
+                <Border.Shadow>
+                    <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
+                </Border.Shadow>
+                <Entry Placeholder="Description" PlaceholderColor="#373737" FontSize="18" FontAttributes="Italic"></Entry>
+            </Border>
+            <Button Text="Create New Task" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="#CD9A68"
+        VerticalOptions="End">
+                <Button.Shadow>
+                    <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
+                </Button.Shadow>
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#DFB386" Offset="0" />
+                        <GradientStop Color="#CD9A68" Offset="2" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Clicked="CancelTask_Clicked"  Text="Cancel" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="#CD9A68"
+        VerticalOptions="End">
+                <Button.Shadow>
+                    <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
+                </Button.Shadow>
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="#AA1C1E" Offset="0" />
+                        <GradientStop Color="DarkRed" Offset="2" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
