@@ -8,7 +8,7 @@
     <ContentPage.Background>
         <RadialGradientBrush Center="0.5,0.5" Radius="0.8">
             <GradientStop Color="#fffefd" Offset="0.0" />
-            <GradientStop Color="#DFB386" Offset="1.0" />
+            <GradientStop Color="{DynamicResource PrimaryColor}" Offset="1.0" />
         </RadialGradientBrush>
     </ContentPage.Background>
     <StackLayout Margin="20" Spacing=" 20">
@@ -17,8 +17,9 @@
                 <TapGestureRecognizer Tapped="HomeImage_Tapped"/>
             </Image.GestureRecognizers>
         </Image>
-               
+
         <Label Text=" 25:00" FontSize="100" FontAttributes="Bold"  TextColor="#373737" Margin="0,140,0,20" HorizontalTextAlignment="Center"/>
+        <Entry Placeholder="Enter session time" HorizontalTextAlignment="Center" FontAttributes="Italic" ></Entry>
         <StackLayout Orientation="Vertical" Spacing="100" >
             <StackLayout Orientation="Horizontal" Spacing="20" Margin="30" >
                 <Button Text="Start" Padding="20,10" CharacterSpacing="3"  >
@@ -27,8 +28,8 @@
                     </Button.Shadow>
                     <Button.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop Color="#DFB386" Offset="0" />
-                            <GradientStop Color="#CD9A68" Offset="2" />
+                            <GradientStop Color="{DynamicResource PrimaryColor}" Offset="0" />
+                            <GradientStop Color="{DynamicResource SeconderyColor}" Offset="2" />
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
@@ -38,8 +39,8 @@
                     </Button.Shadow>
                     <Button.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop Color="#DFB386" Offset="0" />
-                            <GradientStop Color="#CD9A68" Offset="2" />
+                            <GradientStop Color="{DynamicResource PrimaryColor}" Offset="0" />
+                            <GradientStop Color="{DynamicResource SeconderyColor}" Offset="2" />
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
@@ -49,26 +50,27 @@
                     </Button.Shadow>
                     <Button.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop Color="#DFB386" Offset="0" />
-                            <GradientStop Color="#CD9A68" Offset="2" />
+                            <GradientStop Color="{DynamicResource PrimaryColor}" Offset="0" />
+                            <GradientStop Color="{DynamicResource SeconderyColor}" Offset="2" />
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
 
             </StackLayout>
-            <Button Clicked="EnterFocusMode_Clicked"  Text="Enter Focus Mode" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="#CD9A68"
+            <Button Clicked="EnterFocusMode_Clicked"  Text="Enter Focus Mode" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="{DynamicResource SeconderyColor}"
         VerticalOptions="EndAndExpand">
                 <Button.Shadow>
                     <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
                 </Button.Shadow>
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="#DFB386" Offset="0" />
-                        <GradientStop Color="#CD9A68" Offset="2" />
+                        <GradientStop Color="{DynamicResource PrimaryColor}" Offset="0" />
+                        <GradientStop Color="{DynamicResource SeconderyColor}" Offset="2" />
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
         </StackLayout>
         
+
     </StackLayout>
 </ContentPage>

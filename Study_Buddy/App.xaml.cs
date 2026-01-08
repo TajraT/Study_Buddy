@@ -1,4 +1,6 @@
-﻿namespace Study_Buddy
+﻿using Study_Buddy.Services;
+
+namespace Study_Buddy
 {
     public partial class App : Application
     {
@@ -6,6 +8,8 @@
         {
             InitializeComponent();
             MainPage = new MainPage();
+
+            ThemeMenager.LoadTheme();
             
         }
 
