@@ -6,56 +6,56 @@
     <ContentPage.Background>
         <RadialGradientBrush Center="0.5,0.5" Radius="0.8">
             <GradientStop Color="#fffefd" Offset="0.0" />
-            <GradientStop Color="#DFB386" Offset="1.0" />
+            <GradientStop Color="{DynamicResource PrimaryColor}" Offset="1.0" />
         </RadialGradientBrush>
     </ContentPage.Background>
     <StackLayout>
         <StackLayout Spacing="20">
             <Label Text="Weekly Study Hours" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="#373737" Margin="0,30,0,0"/>
-            <Label Text="Motivational quote for the day" HorizontalTextAlignment="Center" FontSize="25" TextColor="#373737" FontAttributes="Italic,Bold"/>
+            <Label x:Name="QuoteLabel" Text="Motivational quote for the day" HorizontalTextAlignment="Center" FontSize="25" TextColor="#373737" FontAttributes="Italic,Bold"/>
         </StackLayout>
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="20" Margin="0,-30,0,0">
             <Frame BackgroundColor="White" CornerRadius="20" Padding="20" HasShadow="True" HorizontalOptions="Center" VerticalOptions="Center">
                 <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Always">
                     <StackLayout Orientation="Horizontal" Spacing="20" Padding="10">
                         <StackLayout VerticalOptions="End" HorizontalOptions="Center">
-                            <BoxView HeightRequest="300" WidthRequest="20" Color="#DFB386" BackgroundColor="Transparent" CornerRadius="20"/>
+                            <BoxView HeightRequest="300" WidthRequest="20" Color="{DynamicResource PrimaryColor}" BackgroundColor="Transparent" CornerRadius="20"/>
                             <Label Text="Mon" FontSize="14" HorizontalTextAlignment="Center" TextColor="#373737"/>
                         </StackLayout>
                         <StackLayout VerticalOptions="End" HorizontalOptions="Center">
-                            <BoxView HeightRequest="300" WidthRequest="20" Color="#CD9A68"  BackgroundColor="Transparent" CornerRadius="20"/>
+                            <BoxView HeightRequest="300" WidthRequest="20" Color="{DynamicResource SeconderyColor}"  BackgroundColor="Transparent" CornerRadius="20"/>
                             <Label Text="Tue" FontSize="14" HorizontalTextAlignment="Center" TextColor="#373737"/>
                         </StackLayout>
                         <StackLayout VerticalOptions="End" HorizontalOptions="Center">
-                            <BoxView HeightRequest="300" WidthRequest="20" Color="#DFB386"  BackgroundColor="Transparent" CornerRadius="20"/>
+                            <BoxView HeightRequest="300" WidthRequest="20" Color="{DynamicResource PrimaryColor}"  BackgroundColor="Transparent" CornerRadius="20"/>
                             <Label Text="Wed" FontSize="14" HorizontalTextAlignment="Center" TextColor="#373737"/>
                         </StackLayout>
                         <StackLayout VerticalOptions="End" HorizontalOptions="Center">
-                            <BoxView HeightRequest="300" WidthRequest="20" Color="#CD9A68"  BackgroundColor="Transparent" CornerRadius="20"/>
+                            <BoxView HeightRequest="300" WidthRequest="20" Color="{DynamicResource SeconderyColor}"  BackgroundColor="Transparent" CornerRadius="20"/>
                             <Label Text="Thu" FontSize="14" HorizontalTextAlignment="Center" TextColor="#373737"/>
                         </StackLayout>
                         <StackLayout VerticalOptions="End" HorizontalOptions="Center">
-                            <BoxView HeightRequest="300" WidthRequest="20" Color="#DFB386"  BackgroundColor="Transparent" CornerRadius="20"/>
+                            <BoxView HeightRequest="300" WidthRequest="20" Color="{DynamicResource PrimaryColor}"  BackgroundColor="Transparent" CornerRadius="20"/>
                             <Label Text="Fri" FontSize="14" HorizontalTextAlignment="Center" TextColor="#373737"/>
                         </StackLayout>
                         <StackLayout VerticalOptions="End" HorizontalOptions="Center">
-                            <BoxView HeightRequest="300" WidthRequest="20" Color="#CD9A68"  BackgroundColor="Transparent" CornerRadius="20"/>
+                            <BoxView HeightRequest="300" WidthRequest="20" Color="{DynamicResource SeconderyColor}"  BackgroundColor="Transparent" CornerRadius="20"/>
                             <Label Text="Sat" FontSize="14" HorizontalTextAlignment="Center" TextColor="#373737"/>
                         </StackLayout>
                         <StackLayout VerticalOptions="End" HorizontalOptions="Center">
-                            <BoxView HeightRequest="300" WidthRequest="20" Color="#DFB386"  BackgroundColor="Transparent" CornerRadius="20"/>
+                            <BoxView HeightRequest="300" WidthRequest="20" Color="{DynamicResource PrimaryColor}"  BackgroundColor="Transparent" CornerRadius="20"/>
                             <Label Text="Sun" FontSize="14" HorizontalTextAlignment="Center" TextColor="#373737"/>
                         </StackLayout>
                         <StackLayout VerticalOptions="End" HorizontalOptions="Center">
-                            <BoxView HeightRequest="300" WidthRequest="20" Color="#DFB386"   BackgroundColor="Transparent" CornerRadius="20"/>
+                            <BoxView HeightRequest="300" WidthRequest="20" Color="{DynamicResource PrimaryColor}"   BackgroundColor="Transparent" CornerRadius="20"/>
                             <Label Text="Sun" FontSize="14" HorizontalTextAlignment="Center" TextColor="#373737"/>
                         </StackLayout>
                         <StackLayout VerticalOptions="End" HorizontalOptions="Center">
-                            <BoxView HeightRequest="300" WidthRequest="20" Color="#DFB386"  BackgroundColor="Transparent" CornerRadius="20"/>
+                            <BoxView HeightRequest="300" WidthRequest="20" Color="{DynamicResource PrimaryColor}"  BackgroundColor="Transparent" CornerRadius="20"/>
                             <Label Text="Sun" FontSize="14" HorizontalTextAlignment="Center" TextColor="#373737"/>
                         </StackLayout>
                         <StackLayout VerticalOptions="End" HorizontalOptions="Center">
-                            <BoxView HeightRequest="300" WidthRequest="20" Color="#DFB386"   BackgroundColor="Transparent" CornerRadius="20"/>
+                            <BoxView HeightRequest="300" WidthRequest="20" Color="{DynamicResource PrimaryColor}"   BackgroundColor="Transparent" CornerRadius="20"/>
                             <Label Text="Sun" FontSize="14" HorizontalTextAlignment="Center" TextColor="#373737"/>
                         </StackLayout>
                     </StackLayout>

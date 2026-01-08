@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Study_Buddy.SettingsPage"
-             Title="SettingsPage">
+             x:Class="Study_Buddy.ThemesPage"
+             Title="ThemesPage">
     <ContentPage.Background>
         <RadialGradientBrush Center="0.5,0.5" Radius="0.8">
             <GradientStop Color="#fffefd" Offset="0.0" />
-            <GradientStop Color="#DFB386" Offset="1.0" />
+            <GradientStop Color="{DynamicResource PrimaryColor}" Offset="1.0" />
         </RadialGradientBrush>
     </ContentPage.Background>
-    <StackLayout Margin="20" Spacing="25">
-        <StackLayout Spacing="5">
-            <Label Text="Session Time" FontSize="20" FontAttributes="Bold" TextColor="#373737"/>
-            <Entry Placeholder="Enter Session Time" FontSize="16" PlaceholderColor="#373737" FontAttributes="Italic"></Entry>
-        </StackLayout>
-        <StackLayout Spacing="20">
-            <Label Text="Pick your color scheme" FontSize="20" FontAttributes="Bold" TextColor="#373737"/>
+    <StackLayout Margin="20,50" Spacing="25">
+        <Label Text="Pick your color theme" FontSize="40" FontAttributes="Bold" TextColor="#373737" />
+        <StackLayout  VerticalOptions="CenterAndExpand">
             <StackLayout Spacing="20">
-                <Button Text="Neutral Tone" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="#CD9A68"
+                <Button Clicked="Neutral_Clicked" Text="Neutral Tone" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="{DynamicResource SeconderyColor}"
         VerticalOptions="End">
                     <Button.Shadow>
                         <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
@@ -29,7 +25,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Text="Warm Tone" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="#CD9A68"
+                <Button Clicked="Warm_Clicked" Text="Warm Tone" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="{DynamicResource SeconderyColor}"
         VerticalOptions="End">
                     <Button.Shadow>
                         <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
@@ -41,7 +37,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Text="Cold Tone" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="#CD9A68"
+                <Button Clicked="Cold_Clicked" Text="Cold Tone" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="{DynamicResource SeconderyColor}"
         VerticalOptions="End">
                     <Button.Shadow>
                         <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>

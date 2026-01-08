@@ -7,13 +7,13 @@
     <ContentPage.Background>
         <RadialGradientBrush Center="0.5,0.5" Radius="0.8">
             <GradientStop Color="#fffefd" Offset="0.0" />
-            <GradientStop Color="#DFB386" Offset="1.0" />
+            <GradientStop Color="{DynamicResource PrimaryColor}" Offset="1.0" />
         </RadialGradientBrush>
     </ContentPage.Background>
     
     <Grid>
         <StackLayout Margin="0,150">
-            <Border  HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="350" HeightRequest="350"  BackgroundColor="Transparent" Stroke="#DFB386" StrokeThickness="5" StrokeShape="Ellipse" >
+            <Border  HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="350" HeightRequest="350"  BackgroundColor="Transparent" Stroke="{DynamicResource PrimaryColor}" StrokeThickness="5" StrokeShape="Ellipse" >
             <Border.Shadow>
                 <Shadow Brush="#373737" Offset="0,5" Radius="15" Opacity="0.4" ></Shadow>
             </Border.Shadow>
@@ -21,14 +21,14 @@
         </Border>
         </StackLayout>
         <StackLayout Margin="20,0,20,70" VerticalOptions="EndAndExpand">
-            <Button Clicked="ExitFocusMode_Clicked"  Text="Exit Focus Mode" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="#CD9A68">
+            <Button Clicked="ExitFocusMode_Clicked"  Text="Exit Focus Mode" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="{DynamicResource SeconderyColor}">
                 <Button.Shadow>
                 <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
             </Button.Shadow>
             <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                    <GradientStop Color="#DFB386" Offset="0" />
-                    <GradientStop Color="#CD9A68" Offset="2" />
+                        <GradientStop Color="{DynamicResource PrimaryColor}" Offset="0" />
+                        <GradientStop Color="{DynamicResource SeconderyColor}" Offset="2" />
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
