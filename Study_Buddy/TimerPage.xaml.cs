@@ -84,6 +84,14 @@ public partial class TimerPage : ContentPage
         await Navigation.PushAsync(new FocusModePage(_seconds));
 
     }
+
+
+    private async void HomeImage_Tapped(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
+
 }
+
 
 
