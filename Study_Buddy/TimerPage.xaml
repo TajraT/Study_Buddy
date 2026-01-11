@@ -22,7 +22,7 @@
         <Entry Placeholder="Enter session time" HorizontalTextAlignment="Center" FontAttributes="Italic" ></Entry>
         <StackLayout Orientation="Vertical" Spacing="100" >
             <StackLayout Orientation="Horizontal" Spacing="20" Margin="30" >
-                <Button Text="Start" Padding="20,10" CharacterSpacing="3"  >
+                <Button Text="Start" Padding="20,10" CharacterSpacing="3" TextColor="#ffffff" >
                     <Button.Shadow>
                         <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
                     </Button.Shadow>
@@ -33,7 +33,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Text="Pause" Padding="20,10" CharacterSpacing="3" >
+                <Button Text="Pause" Padding="20,10" CharacterSpacing="3" TextColor="#ffffff" >
                     <Button.Shadow>
                         <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
                     </Button.Shadow>
@@ -44,7 +44,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Text="Restart" Padding="20,10" CharacterSpacing="3" >
+                <Button Text="Restart" Padding="20,10" CharacterSpacing="3" TextColor="#ffffff" >
                     <Button.Shadow>
                         <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
                     </Button.Shadow>

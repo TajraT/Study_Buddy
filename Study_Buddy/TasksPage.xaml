@@ -23,7 +23,7 @@
                             <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
                         </StackLayout>
                         <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
-                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete"/>
+                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete" TextColor="#ffffff"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -35,7 +35,7 @@
                             <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
                         </StackLayout>
                         <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
-                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete"/>
+                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete" TextColor="#ffffff" />
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -47,7 +47,7 @@
                             <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
                         </StackLayout>
                         <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
-                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete"/>
+                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete" TextColor="#ffffff"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -59,7 +59,7 @@
                             <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
                         </StackLayout>
                         <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
-                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete"/>
+                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete" TextColor="#ffffff"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -71,7 +71,7 @@
                             <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
                         </StackLayout>
                         <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
-                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete"/>
+                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete" TextColor="#ffffff"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -83,7 +83,7 @@
                             <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
                         </StackLayout>
                         <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
-                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete"/>
+                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete" TextColor="#ffffff"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -95,7 +95,7 @@
                             <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
                         </StackLayout>
                         <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
-                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete"/>
+                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete" TextColor="#ffffff"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
