@@ -11,66 +11,173 @@
             <GradientStop Color="{DynamicResource PrimaryColor}" Offset="1.0" />
         </RadialGradientBrush>
     </ContentPage.Background>
-    <StackLayout Margin="20" Spacing=" 20">
+    <StackLayout Margin="20" Spacing="20">
         <Image x:Name="HomeImage" Source="home.png" HeightRequest="30" HorizontalOptions="Start">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="HomeImage_Tapped"/>
             </Image.GestureRecognizers>
         </Image>
 
-        <Label Text=" 25:00" FontSize="100" FontAttributes="Bold"  TextColor="#373737" Margin="0,140,0,20" HorizontalTextAlignment="Center"/>
-        <Entry Placeholder="Enter session time" HorizontalTextAlignment="Center" FontAttributes="Italic" ></Entry>
-        <StackLayout Orientation="Vertical" Spacing="100" >
-            <StackLayout Orientation="Horizontal" Spacing="20" Margin="30" >
-                <Button Text="Start" Padding="20,10" CharacterSpacing="3"  >
+        <!-- ENTRY -->
+        <Entry Grid.Row="1"
+               x:Name="MinutesEntry"
+               Placeholder="Enter minutes (e.g. 25)"
+               Keyboard="Numeric"
+               HorizontalTextAlignment="Center"
+               FontSize="18"
+               Margin="0,20,0,10"/>
+
+        <!-- TIMER KRUG -->
+        <StackLayout Grid.Row="2" VerticalOptions="Center">
+
+            <Border HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="350"
+                    HeightRequest="350"
+                    BackgroundColor="Transparent"
+                    Stroke="#DFB386"
+                    StrokeThickness="5"
+                    StrokeShape="Ellipse">
+
+                <Border.Shadow>
+                    <Shadow Brush="#373737"
+                            Offset="0,5"
+                            Radius="15"
+                            Opacity="0.4"/>
+                </Border.Shadow>
+
+                <Label x:Name="TimerLabel"
+                       Text="25:00"
+                       FontSize="85"
+                       FontAttributes="Bold"
+                       TextColor="#373737"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+            </Border>
+
+        </StackLayout>
+
+        <!-- DUGMAD -->
+        <StackLayout Grid.Row="3" Spacing="25">
+
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         Spacing="20">
+
+                <!-- Start -->
+                <Button Text="Start"
+                        Clicked="Start_Clicked"
+                        Padding="20,10"
+                        CharacterSpacing="3">
                     <Button.Shadow>
                         <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
                     </Button.Shadow>
                     <Button.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop Color="{DynamicResource PrimaryColor}" Offset="0" />
-                            <GradientStop Color="{DynamicResource SeconderyColor}" Offset="2" />
+                            <GradientStop Color="#DFB386" Offset="0"/>
+                            <GradientStop Color="#CD9A68" Offset="1"/>
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Text="Pause" Padding="20,10" CharacterSpacing="3" >
+
+                <!-- Pause -->
+                <Button Text="Pause"
+                        Clicked="Pause_Clicked"
+                        Padding="20,10"
+                        CharacterSpacing="3">
                     <Button.Shadow>
                         <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
                     </Button.Shadow>
                     <Button.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop Color="{DynamicResource PrimaryColor}" Offset="0" />
-                            <GradientStop Color="{DynamicResource SeconderyColor}" Offset="2" />
+                            <GradientStop Color="#DFB386" Offset="0"/>
+                            <GradientStop Color="#CD9A68" Offset="1"/>
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Text="Restart" Padding="20,10" CharacterSpacing="3" >
+
+                <!-- Restart -->
+                <Button Text="Restart"
+                        Clicked="Restart_Clicked"
+                        Padding="20,10"
+                        CharacterSpacing="3">
                     <Button.Shadow>
                         <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
                     </Button.Shadow>
                     <Button.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                            <GradientStop Color="{DynamicResource PrimaryColor}" Offset="0" />
-                            <GradientStop Color="{DynamicResource SeconderyColor}" Offset="2" />
+                            <GradientStop Color="#DFB386" Offset="0"/>
+                            <GradientStop Color="#CD9A68" Offset="1"/>
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
 
             </StackLayout>
-            <Button Clicked="EnterFocusMode_Clicked"  Text="Enter Focus Mode" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="{DynamicResource SeconderyColor}"
-        VerticalOptions="EndAndExpand">
+
+            <!-- FOCUS MODE -->
+            <Button Text="Enter Focus Mode"
+                    Clicked="EnterFocusMode_Clicked"
+                    CharacterSpacing="3"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    FontSize="20"
+                    CornerRadius="20"
+                    Padding="40,20">
+
                 <Button.Shadow>
                     <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
                 </Button.Shadow>
+
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="{DynamicResource PrimaryColor}" Offset="0" />
-                        <GradientStop Color="{DynamicResource SeconderyColor}" Offset="2" />
+                        <GradientStop Color="#DFB386" Offset="0"/>
+                        <GradientStop Color="#CD9A68" Offset="1"/>
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-        </StackLayout>
-        
 
+        </StackLayout>
+
+        <!-- CONFIRMATION POPUP -->
+        <Grid x:Name="ConfirmPopup"
+      IsVisible="False"
+      BackgroundColor="#80000000"
+      RowSpan="4">
+
+            <Frame WidthRequest="300"
+           Padding="25"
+           CornerRadius="20"
+           BackgroundColor="#fffefd"
+           VerticalOptions="Center"
+           HorizontalOptions="Center"
+           HasShadow="True">
+
+                <StackLayout Spacing="20">
+
+                    <Label x:Name="ConfirmText"
+                   Text="Session time set!"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="#373737"
+                   HorizontalTextAlignment="Center"/>
+
+                    <Button Text="OK"
+                    Clicked="ClosePopup_Clicked"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    CornerRadius="15"
+                    Padding="20,10">
+
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                <GradientStop Color="#DFB386" Offset="0"/>
+                                <GradientStop Color="#CD9A68" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+
+                </StackLayout>
+            </Frame>
+        </Grid>
     </StackLayout>
-</ContentPage>
+</ContentPage> 
