@@ -17,15 +17,15 @@
             <Border.Shadow>
                 <Shadow Brush="#373737" Offset="0,5" Radius="15" Opacity="0.4" ></Shadow>
             </Border.Shadow>
-                <Label x:Name="FocusTimerLabel" Text="25:00" FontSize="85" FontAttributes="Bold" TextColor="#373737" HorizontalOptions="Center" VerticalOptions="Center"/>
-            </Border>
+            <Label Text="25:00" FontSize="85" FontAttributes="Bold" TextColor="#373737" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Border>
         </StackLayout>
         <StackLayout Margin="20,0,20,70" VerticalOptions="EndAndExpand">
-            <Button x:Name="ExitButton" Text="Exit Focus Mode" Clicked="ExitFocusMode_Clicked" IsEnabled="False" Opacity="0.5" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20">
+            <Button Clicked="ExitFocusMode_Clicked"  Text="Exit Focus Mode" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="{DynamicResource SeconderyColor}">
                 <Button.Shadow>
-                    <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
-                </Button.Shadow>
-                <Button.Background>
+                <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
+            </Button.Shadow>
+            <Button.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                         <GradientStop Color="{DynamicResource PrimaryColor}" Offset="0" />
                         <GradientStop Color="{DynamicResource SeconderyColor}" Offset="2" />
