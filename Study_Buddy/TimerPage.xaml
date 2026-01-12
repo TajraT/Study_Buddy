@@ -26,17 +26,17 @@
                 <Label x:Name="TimerLabel" Text="25:00" FontSize="85" FontAttributes="Bold" TextColor="#373737" HorizontalOptions="Center" VerticalOptions="Center"/>
             </Border>
         </StackLayout>
-        <Entry Grid.Row="1"  x:Name="MinutesEntry" Placeholder="Enter minutes (e.g. 25)" Keyboard="Numeric" HorizontalTextAlignment="Center" FontSize="18" FontAttributes="Italic" PlaceholderColor="#373737" Margin="0,20,0,10"/>
+        <Entry Grid.Row="1"  x:Name="MinutesEntry" Placeholder="Enter minutes (e.g. 25)" Keyboard="Numeric" HorizontalTextAlignment="Center" FontSize="18" FontAttributes="Italic" PlaceholderColor="#373737" Margin="0,20,0,10" TextChanged="MinutesEntry_TextChanged"/>
         <StackLayout Grid.Row="3" Spacing="25">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="20">
-                <Button Text="Start" Clicked="Start_Clicked" Padding="20,10" CharacterSpacing="3">
+                <Button Text="Start" Clicked="Start_Clicked" Padding="20,10" CharacterSpacing="3" TextColor="White">
                     <Button.Shadow>
                         <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
                     </Button.Shadow>
                     <Button.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                             <GradientStop Color="{DynamicResource PrimaryColor}" Offset="0"/>
-                            <GradientStop Color="{DynamicResource SenoderyColor}" Offset="1"/>
+                            <GradientStop Color="{DynamicResource SeconderyColor}" Offset="1"/>
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
