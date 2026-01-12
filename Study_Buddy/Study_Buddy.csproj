@@ -98,6 +98,9 @@
 	  <MauiXaml Update="Color\NeutralTone.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Color\PrettyPink.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Color\WarmTone.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -23,4 +23,9 @@ public partial class ThemesPage : ContentPage
     {
         ThemeMenager.ApplyTheme("Cold");
     }
+
+    private void Pink_Clicked(object sender, EventArgs e)
+    {
+        ThemeMenager.ApplyTheme("Pink");
+    }
 }

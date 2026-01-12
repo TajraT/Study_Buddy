@@ -22,6 +22,9 @@ namespace Study_Buddy.Services
                 case "Cold":
                     dictionary = new ColdTone();
                     break;
+                case "Pink":
+                    dictionary = new PrettyPink();
+                    break;
                 default:
                     dictionary = new NeutralTone();
                     theme = "Neutral";

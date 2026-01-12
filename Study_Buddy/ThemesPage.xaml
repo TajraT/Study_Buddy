@@ -11,7 +11,7 @@
     </ContentPage.Background>
     <StackLayout Margin="20,50" Spacing="25">
         <Label Text="Pick your color theme" FontSize="40" FontAttributes="Bold" TextColor="#373737" />
-        <StackLayout  VerticalOptions="CenterAndExpand">
+        <StackLayout  Margin="0,70">
             <StackLayout Spacing="20">
                 <Button Clicked="Neutral_Clicked" Text="Neutral Tone" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="{DynamicResource SeconderyColor}"
         VerticalOptions="End">
@@ -46,6 +46,18 @@
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                             <GradientStop Color="#A3E2EC" Offset="0" />
                             <GradientStop Color="#5494A1" Offset="2" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Clicked="Pink_Clicked" Text="Pretty Pink" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="{DynamicResource SeconderyColor}"
+VerticalOptions="End">
+                    <Button.Shadow>
+                        <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
+                    </Button.Shadow>
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#F9BBE6" Offset="0" />
+                            <GradientStop Color="#EE73C4" Offset="2" />
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
