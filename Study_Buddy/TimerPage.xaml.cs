@@ -85,10 +85,12 @@ public partial class TimerPage : ContentPage
 
     }
 
+
     private async void HomeImage_Tapped(object sender, EventArgs e)
     {
         await Navigation.PopModalAsync();
     }
+
 }
 
 

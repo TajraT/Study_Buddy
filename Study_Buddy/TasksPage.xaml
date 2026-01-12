@@ -13,96 +13,34 @@
     </ContentPage.Background>
 
     <StackLayout Margin="20" Spacing="20" VerticalOptions="FillAndExpand">
-        <ScrollView VerticalOptions="FillAndExpand">
-            <StackLayout Spacing="20" >
-                <Frame Padding="0" CornerRadius="20" HasShadow="True">
-                    <StackLayout Margin="10" Orientation="Horizontal">
-                        <CheckBox Color="{DynamicResource SeconderyColor}" HorizontalOptions="Start"/>
-                        <StackLayout Margin="5">
-                            <Label Text="Task 1" FontSize="20" FontAttributes="Bold" TextColor="#373737"/>
-                            <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
-                        </StackLayout>
-                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
-                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete"/>
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
-                <Frame Padding="0" CornerRadius="20" HasShadow="True">
-                    <StackLayout Margin="10" Orientation="Horizontal">
-                        <CheckBox Color="{DynamicResource SeconderyColor}" HorizontalOptions="Start"/>
-                        <StackLayout Margin="5">
-                            <Label Text="Task 2" FontSize="20" FontAttributes="Bold" TextColor="#373737"/>
-                            <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
-                        </StackLayout>
-                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
-                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete"/>
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
-                <Frame Padding="0" CornerRadius="20" HasShadow="True">
-                    <StackLayout Margin="10" Orientation="Horizontal">
-                        <CheckBox Color="{DynamicResource SeconderyColor}" HorizontalOptions="Start"/>
-                        <StackLayout Margin="5">
-                            <Label Text="Task 3" FontSize="20" FontAttributes="Bold" TextColor="#373737"/>
-                            <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
-                        </StackLayout>
-                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
-                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete"/>
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
-                <Frame Padding="0" CornerRadius="20" HasShadow="True">
-                    <StackLayout Margin="10" Orientation="Horizontal">
-                        <CheckBox Color="{DynamicResource SeconderyColor}" HorizontalOptions="Start"/>
-                        <StackLayout Margin="5">
-                            <Label Text="Task 4" FontSize="20" FontAttributes="Bold" TextColor="#373737"/>
-                            <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
-                        </StackLayout>
-                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
-                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete"/>
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
-                <Frame Padding="0" CornerRadius="20" HasShadow="True">
-                    <StackLayout Margin="10" Orientation="Horizontal">
-                        <CheckBox Color="{DynamicResource SeconderyColor}" HorizontalOptions="Start"/>
-                        <StackLayout Margin="5">
-                            <Label Text="Task 5" FontSize="20" FontAttributes="Bold" TextColor="#373737"/>
-                            <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
-                        </StackLayout>
-                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
-                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete"/>
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
-                <Frame Padding="0" CornerRadius="20" HasShadow="True">
-                    <StackLayout Margin="10" Orientation="Horizontal">
-                        <CheckBox Color="{DynamicResource SeconderyColor}" HorizontalOptions="Start"/>
-                        <StackLayout Margin="5">
-                            <Label Text="Task 6" FontSize="20" FontAttributes="Bold" TextColor="#373737"/>
-                            <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
-                        </StackLayout>
-                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
-                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete"/>
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
-                <Frame Padding="0" CornerRadius="20" HasShadow="True">
-                    <StackLayout Margin="10" Orientation="Horizontal">
-                        <CheckBox Color="{DynamicResource SeconderyColor}" HorizontalOptions="Start"/>
-                        <StackLayout Margin="5">
-                            <Label Text="Task 7" FontSize="20" FontAttributes="Bold" TextColor="#373737"/>
-                            <Label Text="Opis ili plan rada" TextColor="#373737" FontSize="16"/>
-                        </StackLayout>
-                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="Center" Margin="10">
-                            <Button BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete"/>
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
+        <CollectionView ItemsSource="{Binding}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="0" CornerRadius="20" HasShadow="True" Margin="0,0,0,20">
+                        <Grid Margin="10" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <CheckBox Grid.Column="0" VerticalOptions="Center" Color="{DynamicResource SeconderyColor}"></CheckBox>
+                            <Label Grid.Column="1" Text="{Binding Category, Converter={StaticResource CategoryIconConverter}}" FontSize="24" VerticalOptions="Center" Margin="10,0"></Label>
+                            <StackLayout Grid.Column="2" Spacing="2" VerticalOptions="Center" Margin="10,0">
+                                <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" TextColor="#373737" LineBreakMode="TailTruncation"></Label>
+                                <Label Text="{Binding Description}" FontSize="16" TextColor="#373737" LineBreakMode="WordWrap"></Label>
+                            </StackLayout>
+                            <Button Clicked="DeleteTask_Clicked" Grid.Column="3" Padding="15,10" BackgroundColor="{DynamicResource PrimaryColor}" Text="Delete" TextColor="#ffffff"  CornerRadius="10"/>
 
-                
-            </StackLayout>
-        </ScrollView>
+                        </Grid>
+                    </Frame>
+                    
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+            
+        </CollectionView> 
+       
         <Button Clicked="AddTask_Clicked" Text="Add Task" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="{DynamicResource SeconderyColor}"
                 VerticalOptions="End">
             <Button.Shadow>
