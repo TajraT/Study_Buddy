@@ -30,19 +30,23 @@
                 </Border.Shadow>
                 <Entry x:Name="DescriptionEntry" Placeholder="Description" PlaceholderColor="#373737" FontSize="18" FontAttributes="Italic"></Entry>
             </Border>
+            <Border Stroke="{DynamicResource PrimaryColor}" StrokeThickness="2" Padding="10" StrokeShape="RoundRectangle 20">
+                <Border.Shadow>
+                    <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
+                </Border.Shadow>
+                <Picker x:Name="CategoryPicker" Title="Select category" TitleColor="#373737" FontSize="18" FontAttributes="Italic">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type local:TaskCategory}">
+                            <local:TaskCategory>Study</local:TaskCategory>
+                            <local:TaskCategory>Homework</local:TaskCategory>
+                            <local:TaskCategory>Project</local:TaskCategory>
+                            <local:TaskCategory>Revision</local:TaskCategory>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </Border>
 
-            <Picker x:Name="CategoryPicker" Title="Select category">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type local:TaskCategory}">
-                        <local:TaskCategory>Study</local:TaskCategory>
-                        <local:TaskCategory>Homework</local:TaskCategory>
-                        <local:TaskCategory>Project</local:TaskCategory>
-                        <local:TaskCategory>Revision</local:TaskCategory>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-            
-            
+
             <Button Clicked="CreateTask_Clicked" Text="Create New Task" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="{DynamicResource SeconderyColor}"
         VerticalOptions="End">
                 <Button.Shadow>
