@@ -10,6 +10,7 @@ namespace Study_Buddy
             MainPage = new MainPage();
 
             ThemeMenager.LoadTheme();
+            TaskStorage.LoadTasks();
             
         }
 

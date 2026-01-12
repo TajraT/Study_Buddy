@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Study_Buddy.AddTaskPage"
              Title="AddTaskPage"
+             xmlns:local="clr-namespace:Study_Buddy"
              NavigationPage.HasNavigationBar="False">
 
     <ContentPage.Background>
@@ -11,22 +12,38 @@
             <GradientStop Color="{DynamicResource PrimaryColor}" Offset="1.0" />
         </RadialGradientBrush>
     </ContentPage.Background>
+    
     <StackLayout Margin="20" Spacing="40">
         <Image Source="study.png" HeightRequest="100" Margin="0,20,0,0"/>
+    
         <StackLayout Margin="0,20" Spacing="40">
             <Border Stroke="{DynamicResource PrimaryColor}" StrokeThickness="2" Padding="10" StrokeShape="RoundRectangle 20">
                 <Border.Shadow>
                     <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
                 </Border.Shadow>
-                <Entry Placeholder="Title" PlaceholderColor="#373737" FontSize="18" FontAttributes="Italic"></Entry>
+                <Entry x:Name="TitleEntry" Placeholder="Title" PlaceholderColor="#373737" FontSize="18" FontAttributes="Italic"></Entry>
             </Border>
+            
             <Border Stroke="{DynamicResource PrimaryColor}" StrokeThickness="2" Padding="10" StrokeShape="RoundRectangle 20">
                 <Border.Shadow>
                     <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
                 </Border.Shadow>
-                <Entry Placeholder="Description" PlaceholderColor="#373737" FontSize="18" FontAttributes="Italic"></Entry>
+                <Entry x:Name="DescriptionEntry" Placeholder="Description" PlaceholderColor="#373737" FontSize="18" FontAttributes="Italic"></Entry>
             </Border>
-            <Button Text="Create New Task" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="{DynamicResource SeconderyColor}"
+
+            <Picker x:Name="CategoryPicker" Title="Select category">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type local:TaskCategory}">
+                        <local:TaskCategory>Study</local:TaskCategory>
+                        <local:TaskCategory>Homework</local:TaskCategory>
+                        <local:TaskCategory>Project</local:TaskCategory>
+                        <local:TaskCategory>Revision</local:TaskCategory>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            
+            
+            <Button Clicked="CreateTask_Clicked" Text="Create New Task" CharacterSpacing="3" FontAttributes="Bold" TextColor="White" FontSize="20" CornerRadius="20" Padding="40,20" BorderColor="{DynamicResource SeconderyColor}"
         VerticalOptions="End">
                 <Button.Shadow>
                     <Shadow Brush="#373737" Offset="0,3" Radius="10" Opacity="0.4"/>
