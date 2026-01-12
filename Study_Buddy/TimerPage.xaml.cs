@@ -8,6 +8,7 @@ public partial class TimerPage : ContentPage
 {
 
     private int _seconds;
+    private int _lastEnteredMinutes = 25;
     private CancellationTokenSource? _cts;
 
     public TimerPage()
@@ -18,7 +19,7 @@ public partial class TimerPage : ContentPage
 
     private void SetDefaultTime()
     {
-        _seconds = 25 * 60;
+        _seconds = _lastEnteredMinutes * 60;
         UpdateLabel();
     }
 
@@ -37,6 +38,7 @@ public partial class TimerPage : ContentPage
         if (int.TryParse(MinutesEntry.Text, out int minutes) && minutes > 0)
         {
             _seconds = minutes * 60;
+            _lastEnteredMinutes = minutes;
             UpdateLabel();
 
 
@@ -91,6 +93,19 @@ public partial class TimerPage : ContentPage
         await Navigation.PopModalAsync();
     }
 
+    private void MinutesEntry_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if(int.TryParse(MinutesEntry.Text,out int minutes) && minutes > 0)
+        {
+            _seconds = minutes * 60;
+            _lastEnteredMinutes = minutes;
+            UpdateLabel();
+        }else if (string.IsNullOrEmpty(MinutesEntry.Text))
+        {
+            _seconds = _lastEnteredMinutes * 60;
+            UpdateLabel();
+        }
+    }
 }
 
 
