@@ -87,7 +87,6 @@
                             </LinearGradientBrush>
                         </Button.Background>
                     </Button>
-
                 </StackLayout>
             </Frame>
         </Grid>
