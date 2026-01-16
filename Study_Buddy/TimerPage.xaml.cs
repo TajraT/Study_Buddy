@@ -83,7 +83,7 @@ public partial class TimerPage : ContentPage
 
     private async void EnterFocusMode_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new FocusModePage(_seconds));
+        await Navigation.PushModalAsync(new FocusModePage(_seconds));
 
     }
 
