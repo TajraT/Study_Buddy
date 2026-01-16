@@ -1,5 +1,6 @@
 using Microsoft.Maui.Graphics;
 using Study_Buddy.Services;
+using Microsoft.Maui.Controls;
 
 namespace Study_Buddy;
 
@@ -55,7 +56,7 @@ public class BarChartDrawable : IDrawable
             float x = (i * 2 + 1) * barWidth;
             float y = dirtyRect.Height - barHeight - 20;
 
-            canvas.FillColor = Color.FromArgb("#DFB386");
+            canvas.FillColor = Microsoft.Maui.Graphics.Color.FromRgba(0xDF, 0xB3, 0x86, 0xFF);
             canvas.FillRoundedRectangle(x, y, barWidth, barHeight, 8);
 
             canvas.FontColor = Colors.Black;

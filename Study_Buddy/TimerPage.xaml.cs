@@ -91,6 +91,18 @@ public partial class TimerPage : ContentPage
     {
         await Navigation.PopModalAsync();
     }
+    private void MinutesEntry_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (_cts != null) return;
+
+        if (int.TryParse(e.NewTextValue, out int minutes) && minutes > 0)
+        {
+            _lastEnteredMinutes = minutes;
+            _seconds = minutes * 60;
+            UpdateLabel();
+        }
+    }
+
 }
 
 
