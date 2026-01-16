@@ -87,24 +87,9 @@ public partial class TimerPage : ContentPage
 
     }
 
-
     private async void HomeImage_Tapped(object sender, EventArgs e)
     {
         await Navigation.PopModalAsync();
-    }
-
-    private void MinutesEntry_TextChanged(object sender, TextChangedEventArgs e)
-    {
-        if(int.TryParse(MinutesEntry.Text,out int minutes) && minutes > 0)
-        {
-            _seconds = minutes * 60;
-            _lastEnteredMinutes = minutes;
-            UpdateLabel();
-        }else if (string.IsNullOrEmpty(MinutesEntry.Text))
-        {
-            _seconds = _lastEnteredMinutes * 60;
-            UpdateLabel();
-        }
     }
 }
 
