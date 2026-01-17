@@ -10,15 +10,18 @@ public partial class TimerPage : ContentPage
     private int _seconds;
     private int _lastEnteredMinutes = 25;
     private CancellationTokenSource? _cts;
-
+    private FocusModePage? _focusPage;
+    private const string LastTimerMinutesKey = "last_timer_minutes";
     public TimerPage()
     {
         InitializeComponent();
         SetDefaultTime();
+        MinutesEntry.Text = _lastEnteredMinutes.ToString();
     }
 
     private void SetDefaultTime()
     {
+        _lastEnteredMinutes = Preferences.Get(LastTimerMinutesKey, 25);
         _seconds = _lastEnteredMinutes * 60;
         UpdateLabel();
     }
@@ -61,6 +64,7 @@ public partial class TimerPage : ContentPage
         finally
         {
             _cts = null;
+            _focusPage?.TimerFinished();
         }
     }
 
@@ -83,7 +87,8 @@ public partial class TimerPage : ContentPage
 
     private async void EnterFocusMode_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushModalAsync(new FocusModePage(_seconds));
+        _focusPage = new FocusModePage(_seconds);
+        await Navigation.PushModalAsync(_focusPage);
 
     }
 
@@ -100,6 +105,7 @@ public partial class TimerPage : ContentPage
             _lastEnteredMinutes = minutes;
             _seconds = minutes * 60;
             UpdateLabel();
+            Preferences.Set(LastTimerMinutesKey, minutes);
         }
     }
 
