@@ -1,6 +1,9 @@
-using Microsoft.Maui.Graphics;
 using Study_Buddy.Services;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Graphics;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Study_Buddy;
 
@@ -9,6 +12,11 @@ public partial class StatisticsPage : ContentPage
     public StatisticsPage()
     {
         InitializeComponent();
+    }
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
         LoadChart();
     }
 
@@ -27,7 +35,15 @@ public partial class StatisticsPage : ContentPage
                     .Sum(s => s.DurationMinutes))
             .ToList();
 
-        ChartView.Drawable = new BarChartDrawable(days, dailyMinutes);
+        var primaryColor = (Microsoft.Maui.Graphics.Color)Application.Current.Resources["PrimaryColor"];
+        var secondaryColor = (Microsoft.Maui.Graphics.Color)Application.Current.Resources["SeconderyColor"];
+
+        ChartView.Drawable = new BarChartDrawable(
+            days,
+            dailyMinutes,
+            primaryColor,
+            secondaryColor
+        );
     }
 }
 
@@ -35,16 +51,24 @@ public class BarChartDrawable : IDrawable
 {
     private readonly List<DateTime> _days;
     private readonly List<int> _values;
+    private readonly Microsoft.Maui.Graphics.Color _primaryColor;
+    private readonly Microsoft.Maui.Graphics.Color _secondaryColor;
 
-    public BarChartDrawable(List<DateTime> days, List<int> values)
+    public BarChartDrawable(
+        List<DateTime> days,
+        List<int> values,
+        Microsoft.Maui.Graphics.Color primaryColor,
+        Microsoft.Maui.Graphics.Color secondaryColor)
     {
         _days = days;
         _values = values;
+        _primaryColor = primaryColor;
+        _secondaryColor = secondaryColor;
     }
 
     public void Draw(ICanvas canvas, RectF dirtyRect)
     {
-        canvas.FillColor = Colors.Transparent;
+        canvas.FillColor = Microsoft.Maui.Graphics.Colors.Transparent;
         canvas.FillRectangle(dirtyRect);
 
         float barWidth = dirtyRect.Width / (_values.Count * 2);
@@ -56,10 +80,19 @@ public class BarChartDrawable : IDrawable
             float x = (i * 2 + 1) * barWidth;
             float y = dirtyRect.Height - barHeight - 20;
 
-            canvas.FillColor = Microsoft.Maui.Graphics.Color.FromRgba(0xDF, 0xB3, 0x86, 0xFF);
+            var day = _days[i].DayOfWeek;
+
+            bool usePrimary =
+                day == DayOfWeek.Monday ||
+                day == DayOfWeek.Wednesday ||
+                day == DayOfWeek.Friday ||
+                day == DayOfWeek.Sunday;
+
+            canvas.FillColor = usePrimary ? _primaryColor : _secondaryColor;
+
             canvas.FillRoundedRectangle(x, y, barWidth, barHeight, 8);
 
-            canvas.FontColor = Colors.Black;
+            canvas.FontColor = Microsoft.Maui.Graphics.Colors.Black;
             canvas.FontSize = 12;
             canvas.DrawString(
                 _values[i].ToString(),
