@@ -13,6 +13,7 @@ public partial class FocusModePage : ContentPage
     private int _initialSeconds;
     private CancellationTokenSource? _cts;
     private bool _sessionSaved = false;
+    private bool _focusFinished = false;
 
     public FocusModePage(int seconds)
     {
@@ -52,7 +53,7 @@ public partial class FocusModePage : ContentPage
 
     private async void ExitFocusMode_Clicked(object sender, EventArgs e)
     {
-        SaveSession();
+        if (!_focusFinished) return;
         _cts?.Cancel();
         await Navigation.PopModalAsync();
     }
@@ -70,5 +71,18 @@ public partial class FocusModePage : ContentPage
         };
         FocusStatsService.SaveSession(session);
         _sessionSaved = true;
+    }
+    public void TimerFinished()
+    {
+        _focusFinished = true;
+        SaveSession();
+        ExitButton.IsEnabled = true;
+        ExitButton.Opacity = 1;
+    }
+    protected override bool OnBackButtonPressed()
+    {
+        if(!_focusFinished)
+            return true;
+        return base.OnBackButtonPressed();
     }
 }
