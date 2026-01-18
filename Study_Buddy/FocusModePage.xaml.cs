@@ -1,88 +1,70 @@
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
 using Study_Buddy.Services;
 using Study_Buddy.Models;
+using Study_Buddy.Services;
 
 namespace Study_Buddy;
 
 public partial class FocusModePage : ContentPage
 {
-    private int _seconds;
-    private int _initialSeconds;
-    private CancellationTokenSource? _cts;
-    private bool _sessionSaved = false;
-    private bool _focusFinished = false;
+    private readonly TimerService _timer = App.TimerService;
 
-    public FocusModePage(int seconds)
+    private bool _focusFinished = false;
+    private bool _sessionSaved = false;
+
+    public FocusModePage()
     {
         InitializeComponent();
-        _seconds = seconds;
-        _initialSeconds = seconds;
-        UpdateLabel();
-        StartTimer();
-    }
 
-    private void UpdateLabel()
-    {
-        FocusTimerLabel.Text = TimeSpan
-            .FromSeconds(_seconds)
-            .ToString(@"mm\:ss");
-    }
-
-    private async void StartTimer()
-    {
-        _cts = new CancellationTokenSource();
-
-        try
+        _timer.Tick += seconds =>
         {
-            while (_seconds > 0)
+            MainThread.BeginInvokeOnMainThread(() =>
             {
-                await Task.Delay(1000, _cts.Token);
-                _seconds--;
-                UpdateLabel();
-            }
-        }
-        catch (TaskCanceledException) { }
-        SaveSession();
-        ExitButton.IsEnabled = true;
-        ExitButton.Opacity = 1;
+                FocusTimerLabel.Text =
+                    TimeSpan.FromSeconds(seconds).ToString(@"mm\:ss");
+            });
+        };
 
+        _timer.Finished += () =>
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                _focusFinished = true;
+                SaveSession();
+                ExitButton.IsEnabled = true;
+                ExitButton.Opacity = 1;
+            });
+        };
     }
 
     private async void ExitFocusMode_Clicked(object sender, EventArgs e)
     {
         if (!_focusFinished) return;
-        _cts?.Cancel();
+
+        int minutes = Preferences.Get("last_timer_minutes", 25);
+        _timer.Reset(minutes * 60);
+
         await Navigation.PopModalAsync();
     }
+
+    protected override bool OnBackButtonPressed()
+    {
+        return !_focusFinished;
+    }
+
     private void SaveSession()
     {
         if (_sessionSaved) return;
-        int spentSeconds = _initialSeconds - _seconds;
-        if (spentSeconds < 60)
-            return;
-        int minutes = spentSeconds / 60;
+
+        int minutes = Preferences.Get("last_timer_minutes", 25);
+
         var session = new FocusSession
         {
             Date = DateTime.Today,
             DurationMinutes = minutes
         };
+
         FocusStatsService.SaveSession(session);
         _sessionSaved = true;
-    }
-    public void TimerFinished()
-    {
-        _focusFinished = true;
-        SaveSession();
-        ExitButton.IsEnabled = true;
-        ExitButton.Opacity = 1;
-    }
-    protected override bool OnBackButtonPressed()
-    {
-        if(!_focusFinished)
-            return true;
-        return base.OnBackButtonPressed();
     }
 }

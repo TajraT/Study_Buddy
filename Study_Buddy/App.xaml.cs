@@ -4,6 +4,8 @@ namespace Study_Buddy
 {
     public partial class App : Application
     {
+        public static TimerService TimerService { get; } = new();
+
         public App()
         {
             InitializeComponent();

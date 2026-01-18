@@ -1,71 +1,83 @@
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
+using Study_Buddy.Services;
+
 namespace Study_Buddy;
 
 public partial class TimerPage : ContentPage
 {
+    private readonly TimerService _timer = App.TimerService;
 
-    private int _seconds;
     private int _lastEnteredMinutes = 25;
-    private CancellationTokenSource? _cts;
-    private FocusModePage? _focusPage;
     private const string LastTimerMinutesKey = "last_timer_minutes";
+
     public TimerPage()
     {
         InitializeComponent();
-        SetDefaultTime();
-        MinutesEntry.Text = _lastEnteredMinutes.ToString();
-    }
 
-    private void SetDefaultTime()
-    {
         _lastEnteredMinutes = Preferences.Get(LastTimerMinutesKey, 25);
-        _seconds = _lastEnteredMinutes * 60;
-        UpdateLabel();
+        MinutesEntry.Text = _lastEnteredMinutes.ToString();
+
+        _timer.Tick += seconds =>
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                TimerLabel.Text =
+                    TimeSpan.FromSeconds(seconds).ToString(@"mm\:ss");
+            });
+        };
+
+        _timer.Finished += () =>
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                _timer.Reset(_lastEnteredMinutes * 60);
+            });
+        };
+
+        _timer.SetTime(_lastEnteredMinutes * 60);
     }
 
-    private void UpdateLabel()
+    private void Start_Clicked(object sender, EventArgs e)
     {
-        TimerLabel.Text = TimeSpan
-            .FromSeconds(_seconds)
-            .ToString(@"mm\:ss");
-    }
-
-    private async void Start_Clicked(object sender, EventArgs e)
-    {
-        if (_cts != null)
-            return;
-
         if (int.TryParse(MinutesEntry.Text, out int minutes) && minutes > 0)
         {
-            _seconds = minutes * 60;
             _lastEnteredMinutes = minutes;
-            UpdateLabel();
+            Preferences.Set(LastTimerMinutesKey, minutes);
 
+            _timer.SetTime(minutes * 60);
+            _timer.Start();
 
             ConfirmText.Text = $"Focus session set to {minutes} minutes";
             ConfirmPopup.IsVisible = true;
         }
+    }
 
-        _cts = new CancellationTokenSource();
+    private void Pause_Clicked(object sender, EventArgs e)
+    {
+        _timer.Pause();
+    }
 
-        try
+    private void Restart_Clicked(object sender, EventArgs e)
+    {
+        _timer.Reset(_lastEnteredMinutes * 60);
+    }
+
+    private async void EnterFocusMode_Clicked(object sender, EventArgs e)
+    {
+        // ?? KLJUÈNI DIO
+        if (!_timer.IsRunning)
         {
-            while (_seconds > 0)
-            {
-                await Task.Delay(1000, _cts.Token);
-                _seconds--;
-                UpdateLabel();
-            }
+            int minutes = Preferences.Get(LastTimerMinutesKey, 25);
+            _timer.SetTime(minutes * 60);
+            _timer.Start();
         }
-        catch (TaskCanceledException) { }
-        finally
-        {
-            _cts = null;
-            _focusPage?.TimerFinished();
-        }
+
+        await Navigation.PushModalAsync(new FocusModePage());
+    }
+
+    private async void HomeImage_Tapped(object sender, EventArgs e)
+    {
+        await Navigation.PopModalAsync();
     }
 
     private void ClosePopup_Clicked(object sender, EventArgs e)
@@ -73,42 +85,15 @@ public partial class TimerPage : ContentPage
         ConfirmPopup.IsVisible = false;
     }
 
-    private void Pause_Clicked(object sender, EventArgs e)
-    {
-        _cts?.Cancel();
-        _cts = null;
-    }
-
-    private void Restart_Clicked(object sender, EventArgs e)
-    {
-        _cts?.Cancel();
-        SetDefaultTime();
-    }
-
-    private async void EnterFocusMode_Clicked(object sender, EventArgs e)
-    {
-        _focusPage = new FocusModePage(_seconds);
-        await Navigation.PushModalAsync(_focusPage);
-
-    }
-
-    private async void HomeImage_Tapped(object sender, EventArgs e)
-    {
-        await Navigation.PopModalAsync();
-    }
     private void MinutesEntry_TextChanged(object sender, TextChangedEventArgs e)
     {
-        if (_cts != null) return;
+        if (_timer.IsRunning) return;
 
         if (int.TryParse(e.NewTextValue, out int minutes) && minutes > 0)
         {
             _lastEnteredMinutes = minutes;
-            _seconds = minutes * 60;
-            UpdateLabel();
             Preferences.Set(LastTimerMinutesKey, minutes);
+            _timer.SetTime(minutes * 60);
         }
     }
-
 }
-
-

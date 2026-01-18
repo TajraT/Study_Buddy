@@ -4,11 +4,14 @@ using Microsoft.Maui.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Study_Buddy.NewFolder2;
+
 
 namespace Study_Buddy;
 
 public partial class StatisticsPage : ContentPage
 {
+
     public StatisticsPage()
     {
         InitializeComponent();
@@ -114,5 +117,7 @@ public class BarChartDrawable : IDrawable
                 VerticalAlignment.Top
             );
         }
+
     }
+    
 }

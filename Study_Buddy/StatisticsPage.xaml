@@ -15,11 +15,11 @@
 
     <StackLayout Padding="20" Spacing="20">
 
-        <Label Text="Focus Time (Last 7 Days)" FontSize="24" FontAttributes="Bold" TextColor="#373737" HorizontalOptions="Center"/>
+        <Label Text="Focus Time (Last 7 Days)" FontSize="30" FontAttributes="Bold" TextColor="#373737" HorizontalOptions="Center" />
 
-        <GraphicsView x:Name="ChartView" HeightRequest="300"/>
+        <GraphicsView x:Name="ChartView" HeightRequest="300" VerticalOptions="CenterAndExpand"/>
 
-        <Label Text="Minutes per day" FontSize="14" TextColor="#555" HorizontalOptions="Center"/>
+        <Label Text="Minutes per day" FontSize="14" TextColor="#555" HorizontalOptions="Center" FontAttributes="Bold"/>
 
     </StackLayout>
 </ContentPage>
